@@ -30,6 +30,8 @@ function Home() {
     setBlogs(newBlogs);
   };
 
+  const nula = 0;
+
   return (
     <div className="home">
       <BlogList
