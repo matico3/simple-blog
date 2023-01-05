@@ -1,0 +1,22 @@
+{
+  "blogs": [
+    {
+      "title": "Moj novi blog",
+      "body": "lorem ipsum",
+      "author": "matic",
+      "id": 1
+    },
+    {
+      "title": "Svet je lep",
+      "body": "lorem ipsum lorem ipsum",
+      "author": "yoshi",
+      "id": 2
+    },
+    {
+      "title": "Tehnologija gre dalje",
+      "body": "lorem ipsum lorem ipsum lorem ipsum",
+      "author": "matic",
+      "id": 3
+    }
+  ]
+}
