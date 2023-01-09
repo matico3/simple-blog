@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="home">
       {error && <div>{error}</div>}
-      {isPending && <div>Loading...</div>}
+      {isPending && <div>Loading..</div>}
       {blogs && <BlogList blogs={blogs} title="All blogs!" />}
       {blogs && (
         <BlogList
