@@ -16,13 +16,17 @@ const Styled = styled.div`
   }
 
   button {
-    background: var(--pink);
+    background-color: var(--pink);
     color: #fff;
     font-weight: bold;
     padding: 8px;
     border-radius: 8px;
-    cursor: pointer;
     width: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: var(--grey);
+    }
   }
   .right {
     float: right;

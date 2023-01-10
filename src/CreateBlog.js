@@ -16,6 +16,7 @@ const Styled = styled.div`
   h2 {
     font-size: 20px;
     color: var(--pink);
+    margin-top: 20px;
     margin-bottom: 30px;
     padding: 10px;
     border: 2px solid black;
