@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Styled = styled.div``;
+const Styled = styled.div`
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
 
-function BlogList({ blogs, title, handleDelete }) {
+  &:hover {
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    font-size: 20px;
+    color: var(--pink);
+    margin-bottom: 8px;
+  }
+`;
+
+export default function BlogList({ blogs, title, handleDelete }) {
   return (
-    <div className="home">
+    <div>
       <h2>{title}</h2>
       {blogs.map((blog) => (
         <div className="blog-preview" key={blog.id}>
@@ -20,5 +33,3 @@ function BlogList({ blogs, title, handleDelete }) {
     </div>
   );
 }
-
-export default BlogList;

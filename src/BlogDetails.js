@@ -1,12 +1,32 @@
 import { useParams } from "react-router-dom";
-import useFetch from "./useFetch";
+import styled from "styled-components";
+import useGet from "./useGet";
 
-const BlogDetails = () => {
+const Styled = styled.div`
+  h2 {
+    font-size: 20px;
+    color: var(--pink);
+    margin-bottom: 10px;
+  }
+
+  div {
+    margin: 20px 0;
+  }
+
+  button {
+    background: var(--pink);
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+`;
+export default function BlogDetails() {
   const { id } = useParams();
-  const { data: blog, isPending, error } = useFetch(`http://localhost:8000/blogs/${id}`);
-  console.log(blog);
+  const { data: blog, isPending, error } = useGet(`http://localhost:8000/blogs/${id}`);
   return (
-    <div className="blog-details">
+    <Styled>
       {isPending && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {blog && (
@@ -16,8 +36,6 @@ const BlogDetails = () => {
           <div>{blog.body}</div>
         </article>
       )}
-    </div>
+    </Styled>
   );
-};
-
-export default BlogDetails;
+}
