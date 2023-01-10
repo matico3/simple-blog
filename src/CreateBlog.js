@@ -30,9 +30,10 @@ const Styled = styled.div`
   button {
     background: var(--pink);
     color: #fff;
-    border: 0;
+    font-weight: bold;
+    border: 2px solid black;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 5px;
     margin: 15px 0;
     cursor: pointer;
   }

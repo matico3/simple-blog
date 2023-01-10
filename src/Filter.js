@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 const Styled = styled.div`
@@ -20,8 +19,8 @@ export default function useFilter({ filterSettings, setFilterSettings }) {
     <Styled>
       <form>
         <select name="type" value={filterSettings.type} onChange={handleChange}>
-          <option value="title">Title</option>
           <option value="author">Author</option>
+          <option value="title">Title</option>
         </select>
         <input
           type="text"

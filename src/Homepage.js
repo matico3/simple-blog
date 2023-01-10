@@ -1,12 +1,12 @@
 import { useState } from "react";
 import BlogList from "./BlogList";
-import FilterByAuthor from "./useFilter";
+import Filter from "./Filter";
 import useGet from "./useGet";
 
 function Home() {
   const [filterSettings, setFilterSettings] = useState({
     type: "author",
-    search: "matic",
+    search: "",
   });
 
   const { data: blogs, isPending, error } = useGet("http://localhost:8000/blogs");
@@ -15,9 +15,7 @@ function Home() {
     <div className="home">
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
-      <FilterByAuthor
-        filterSettings={filterSettings}
-        setFilterSettings={setFilterSettings}></FilterByAuthor>
+      <Filter filterSettings={filterSettings} setFilterSettings={setFilterSettings} />
       {blogs && (
         <BlogList
           blogs={blogs.filter((blog) =>
@@ -25,7 +23,11 @@ function Home() {
               .toLowerCase()
               .includes(filterSettings.search.toLowerCase())
           )}
-          title={filterSettings.search === "" ? "All blogs" : "Matic"}
+          title={
+            filterSettings.search === ""
+              ? "All blogs"
+              : `Filtering by ${filterSettings.type}`
+          }
         />
       )}
     </div>
