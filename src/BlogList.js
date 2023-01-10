@@ -20,16 +20,19 @@ export default function BlogList({ blogs, title, handleDelete }) {
   return (
     <div>
       <h2>{title}</h2>
-      {blogs.map((blog) => (
-        <div className="blog-preview" key={blog.id}>
-          <Styled>
-            <Link to={`/blogs/${blog.id}`} style={{ textDecoration: "none" }}>
-              <h2>{blog.title}</h2>
-              <p>Written by {blog.author}</p>
-            </Link>
-          </Styled>
-        </div>
-      ))}
+      {blogs
+        .slice(0)
+        .reverse()
+        .map((blog) => (
+          <div key={blog.id}>
+            <Styled>
+              <Link to={`/blogs/${blog.id}`} style={{ textDecoration: "none" }}>
+                <h2>{blog.title}</h2>
+                <p>Written by {blog.author}</p>
+              </Link>
+            </Styled>
+          </div>
+        ))}
     </div>
   );
 }

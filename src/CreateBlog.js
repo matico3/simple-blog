@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import useForm from "./useForm";
 import usePost from "./usePost";
+import { useHistory } from "react-router-dom";
+import useGet from "./useGet";
 
 const Styled = styled.div`
   max-width: 400px;
@@ -34,9 +36,18 @@ const Styled = styled.div`
     border-radius: 8px;
     cursor: pointer;
   }
+  p {
+    margin: 10px;
+  }
+  .success {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+  }
 `;
 
 export default function Create() {
+  const history = useHistory();
+
   const {
     form: blog,
     handleChange,
@@ -47,44 +58,67 @@ export default function Create() {
     author: "Matic",
   });
 
-  const { isSuccess, isPending, fetchPost, error } = usePost();
-
+  const { isSuccess, isPending, fetchPost, error, blogId } = usePost();
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchPost("http://localhost:8000/blogs", blog, clearForm);
   };
 
+  const toTheBlog = () => {
+    history.push(`/blogs/${blogId}`);
+  };
+
+  const addANewOne = () => {
+    window.location.reload();
+  };
+
   return (
     <Styled>
-      <h2>Add a New Blog</h2>
-      {isPending && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      {!isPending && (
-        <form onSubmit={handleSubmit}>
-          <label>Blog Title:</label>
-          <input
-            type="text"
-            name={"title"}
-            required
-            value={blog.title}
-            onChange={handleChange}
-          />
-          <label>Blog Body:</label>
-          <textarea
-            value={blog.body}
-            name="body"
-            onChange={handleChange}
-            required></textarea>
-          <label>Blog Author:</label>
-          <select value={blog.author} name="author" onChange={handleChange}>
-            <option value="Matic">Matic</option>
-            <option value="ChatGPT">ChatGPT</option>
-          </select>
-          <button type="submit" disabled={isPending}>
-            Add Blog
+      {!isSuccess && (
+        <>
+          <h2>Add a New Blog</h2>
+          {isPending && <div>Loading...</div>}
+          {error && <div>{error}</div>}
+          {!isPending && (
+            <form onSubmit={handleSubmit}>
+              <label>Blog Title:</label>
+              <input
+                type="text"
+                name={"title"}
+                required
+                value={blog.title}
+                onChange={handleChange}
+              />
+              <label>Blog Body:</label>
+              <textarea
+                value={blog.body}
+                name="body"
+                onChange={handleChange}
+                required></textarea>
+              <label>Blog Author:</label>
+              <select value={blog.author} name="author" onChange={handleChange}>
+                <option value="Matic">Matic</option>
+                <option value="ChatGPT">ChatGPT</option>
+              </select>
+
+              <button type="submit" disabled={isPending}>
+                Add Blog
+              </button>
+            </form>
+          )}
+        </>
+      )}
+      {isSuccess && <div style={{ margin: "20px" }}>New blog added!</div>}
+      {isSuccess && (
+        <div className="success">
+          <button onClick={toTheBlog} disabled={isPending}>
+            Go To the Blog
           </button>
-          {isSuccess && <div style={{ margin: "20px" }}>New blog added!</div>}
-        </form>
+          <p>or</p>
+          <button onClick={addANewOne} disabled={isPending}>
+            Add a New One
+          </button>
+        </div>
       )}
     </Styled>
   );

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import useGet from "./useGet";
+import { useHistory } from "react-router-dom";
 
 const Styled = styled.div`
   h2 {
@@ -23,8 +24,12 @@ const Styled = styled.div`
   }
 `;
 export default function BlogDetails() {
+  const history = useHistory();
   const { id } = useParams();
   const { data: blog, isPending, error } = useGet(`http://localhost:8000/blogs/${id}`);
+  const goBack = () => {
+    history.go(-1);
+  };
   return (
     <Styled>
       {isPending && <div>Loading...</div>}
@@ -36,6 +41,7 @@ export default function BlogDetails() {
           <div>{blog.body}</div>
         </article>
       )}
+      <button onClick={goBack}>Go back</button>
     </Styled>
   );
 }
