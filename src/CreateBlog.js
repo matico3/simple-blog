@@ -7,10 +7,10 @@ const Styled = styled.div`
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
-
   label {
     text-align: left;
     display: block;
+    margin: 15px 0;
   }
   h2 {
     font-size: 20px;
@@ -30,9 +30,11 @@ const Styled = styled.div`
   button {
     background: var(--pink);
     color: #fff;
-    border: 0;
+    font-weight: bold;
+    border: 2px solid black;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 5px;
+    margin: 15px 0;
     cursor: pointer;
   }
   p {
