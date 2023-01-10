@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --fullwidth: 100%;
     --pink: #ff80a6;
     --blue: #ff80a6;
+    --grey: #7f7f7f;
     }
     * {
         margin: 0;

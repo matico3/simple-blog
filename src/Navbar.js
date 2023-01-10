@@ -27,13 +27,13 @@ function Navbar() {
   return (
     <NavbarStyles>
       <Link to="/" style={{ textDecoration: "none" }}>
-        <h1 style={{ color: "var(--pink) " }}>Blog</h1>
+        <h1 style={{ color: "var(--pink) " }}>Blogs</h1>
       </Link>
       <LinkStyles className="links">
         <Link
           to="/"
           style={{
-            color: "lightGray",
+            color: "var(--grey)",
             fontWeight: "bold",
           }}>
           Home
@@ -43,7 +43,7 @@ function Navbar() {
           style={{
             fontWeight: "bold",
             color: "white",
-            backgroundColor: "lightGray",
+            backgroundColor: "var(--grey)",
           }}>
           New Blog
         </Link>

@@ -4,6 +4,7 @@ import useGet from "./useGet";
 import { useHistory } from "react-router-dom";
 
 const Styled = styled.div`
+  padding: 0 0 50px;
   h2 {
     font-size: 20px;
     color: var(--pink);
@@ -21,14 +22,29 @@ const Styled = styled.div`
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
+    width: 100px;
+  }
+  .right {
+    float: right;
+  }
+  .left {
+    float: left;
   }
 `;
+
 export default function BlogDetails() {
   const history = useHistory();
   const { id } = useParams();
   const { data: blog, isPending, error } = useGet(`http://localhost:8000/blogs/${id}`);
   const goBack = () => {
     history.go(-1);
+  };
+  const deleteBlog = () => {
+    fetch(`http://localhost:8000/blogs/${blog.id}`, {
+      method: "DELETE",
+    }).then(() => {
+      history.push("/");
+    });
   };
   return (
     <Styled>
@@ -41,7 +57,15 @@ export default function BlogDetails() {
           <div>{blog.body}</div>
         </article>
       )}
-      <button onClick={goBack}>Go back</button>
+      <div className="container">
+        <button onClick={goBack} className="left">
+          Go back
+        </button>
+        <p></p>
+        <button onClick={deleteBlog} className="right">
+          Delete
+        </button>
+      </div>
     </Styled>
   );
 }
