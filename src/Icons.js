@@ -11,15 +11,7 @@ function Icon() {
         strokeWidth="3px"
       />
 
-      <text
-        x="58"
-        y="85"
-        fontSize="30px"
-        stroke="var(--darkGrey)"
-        // paint-order="stroke"
-        // strokeLinecap="butt"
-        // strokeLinejoin="miter"
-        fontWeight="600">
+      <text x="58" y="85" fontSize="30px" stroke="var(--darkGrey)" fontWeight="600">
         Blogs
       </text>
     </svg>
