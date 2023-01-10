@@ -11,10 +11,13 @@ const GlobalStyles = createGlobalStyle`
     --fullwidth: 100%;
     --max-width: 600px;
     /* --pink: #ff80a6; */
-    --pink: #ff80a6;
+    --pink: #fd8fb0;
     --softPink: #faeff2;
+    --whitePink: rgb(250, 237, 237);
     --grey: #7f7f7f;
     --lightGrey: #bcbcbc;
+    --darkGrey: #4b4b4b;
+
     }
     * {
         margin: 0;

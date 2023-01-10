@@ -9,6 +9,7 @@ const Styled = styled.div`
   text-align: center;
   label {
     text-align: left;
+    color: var(--darkGrey);
     display: block;
     margin: 15px 0;
   }
@@ -16,6 +17,8 @@ const Styled = styled.div`
     font-size: 20px;
     color: var(--pink);
     margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid black;
   }
   input,
   textarea,
@@ -23,19 +26,22 @@ const Styled = styled.div`
     width: 100%;
     padding: 6px 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 3px solid var(--grey);
     box-sizing: border-box;
     display: block;
   }
   button {
-    background: var(--pink);
+    background-color: var(--pink);
     color: #fff;
     font-weight: bold;
-    border: 2px solid black;
+    border: 2px solid var(--darkGrey);
     padding: 8px;
-    border-radius: 5px;
     margin: 15px 0;
+    transition: background-color 0.3s;
     cursor: pointer;
+    &:hover {
+      background-color: var(--grey);
+    }
   }
   p {
     margin: 10px;

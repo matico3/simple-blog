@@ -19,7 +19,6 @@ const Styled = styled.div`
     background: var(--pink);
     color: #fff;
     font-weight: bold;
-    border: 2px solid black;
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
@@ -38,7 +37,7 @@ export default function BlogDetails() {
   const { id } = useParams();
   const { data: blog, isPending, error } = useGet(`http://localhost:8000/blogs/${id}`);
   const goBack = () => {
-    history.go(-1);
+    history.push("/");
   };
   const deleteBlog = () => {
     fetch(`http://localhost:8000/blogs/${blog.id}`, {

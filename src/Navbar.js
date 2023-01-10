@@ -1,20 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Icon } from "./Icons";
-const LinkStyles = styled.div`
-  margin-left: auto;
-  a {
-    margin-left: 16px;
-    text-decoration: none;
-    padding: 10px;
-    border: 3px solid black;
-    background-color: rgb(250, 237, 237);
-    transition: background-color 0.3s;
-    &:hover {
-      background-color: var(--pink) !important;
-    }
-  }
-`;
 
 const NavbarStyles = styled.nav`
   padding: 20px;
@@ -22,7 +8,7 @@ const NavbarStyles = styled.nav`
   align-items: center;
   margin: 20px auto;
   border-bottom: 1px solid #f2f2f2;
-  background-color: rgb(250, 237, 237);
+  background-color: var(--whitePink);
   max-width: var(--max-width);
   border: 3px solid black;
 
@@ -30,6 +16,21 @@ const NavbarStyles = styled.nav`
     transition: fill 0.3s;
     &:hover {
       fill: #e5fcf8;
+    }
+  }
+`;
+
+const LinkStyles = styled.div`
+  margin-left: auto;
+  a {
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 10px;
+    border: 3px solid black;
+    background-color: var(--whitePink);
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: var(--pink) !important;
     }
   }
 `;
@@ -46,7 +47,7 @@ function Navbar() {
           style={{
             color: "var(--grey)",
             fontWeight: "bold",
-            backgroundColor: "rgb(253, 231, 231)",
+            backgroundColor: "var(--whitePink)",
           }}>
           Home
         </Link>

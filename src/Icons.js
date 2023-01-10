@@ -15,12 +15,11 @@ function Icon() {
         x="58"
         y="85"
         fontSize="30px"
-        stroke="rgb(66, 66, 66)"
-        strokeWidth="1.5px"
+        stroke="var(--darkGrey)"
         // paint-order="stroke"
         // strokeLinecap="butt"
         // strokeLinejoin="miter"
-        fontWeight="800">
+        fontWeight="600">
         Blogs
       </text>
     </svg>
