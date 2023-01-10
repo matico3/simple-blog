@@ -2,7 +2,6 @@ import styled from "styled-components";
 import useForm from "./useForm";
 import usePost from "./usePost";
 import { useHistory } from "react-router-dom";
-import useGet from "./useGet";
 
 const Styled = styled.div`
   max-width: 400px;
