@@ -8,13 +8,13 @@ function Home() {
     <div className="home">
       {error && <div>{error}</div>}
       {isPending && <div>Loading..</div>}
-      {blogs && <BlogList blogs={blogs} title="All blogs!" />}
-      {blogs && (
+      {blogs && <BlogList blogs={blogs} title="All blogs" />}
+      {/* {blogs && (
         <BlogList
           blogs={blogs.filter((blog) => blog.author === "matic")}
           title="Matic's blogs!"
         />
-      )}
+      )} */}
     </div>
   );
 }
