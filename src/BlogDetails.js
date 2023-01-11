@@ -20,7 +20,6 @@ const Styled = styled.div`
     color: #fff;
     font-weight: bold;
     padding: 8px;
-    border-radius: 8px;
     width: 100px;
     cursor: pointer;
     transition: background-color 0.3s;
