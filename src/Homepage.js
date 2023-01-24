@@ -9,7 +9,8 @@ function Home() {
     search: "",
   });
 
-  const { data: blogs, isPending, error } = useGet("http://localhost:8000/blogs");
+  const DB_URL = process.env.REACT_APP_DB_URL;
+  const { data: blogs, isPending, error } = useGet(`${DB_URL}/blogs`);
 
   return (
     <div className="home">

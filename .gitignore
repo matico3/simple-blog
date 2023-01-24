@@ -11,8 +11,6 @@
 /data
 
 # misc
-.id_rsa
-.id_rsa.pub
 .DS_Store
 .env.local
 .env.development.local

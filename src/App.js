@@ -8,7 +8,7 @@ import NotFound from "./NotFound";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <GlobalStyles />
       <>
         <Navbar />
@@ -17,10 +17,10 @@ function App() {
             <Route exact path="/">
               <Homepage />
             </Route>
-            <Route path="/create">
+            <Route exact path="/create">
               <CreateBlog />
             </Route>
-            <Route path="/blogs/:id">
+            <Route exact path="/blogs/:id">
               <BlogDetails />
             </Route>
             <Route path="*">

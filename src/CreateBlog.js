@@ -65,11 +65,11 @@ export default function Create() {
     body: "",
     author: "Matic",
   });
-
+  const DB_URL = process.env.REACT_APP_DB_URL;
   const { isSuccess, isPending, fetchPost, error, blogId } = usePost();
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchPost("http://localhost:8000/blogs", blog, clearForm);
+    fetchPost(`${DB_URL}/blogs`, blog, clearForm);
   };
 
   const toTheBlog = () => {

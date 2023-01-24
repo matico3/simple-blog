@@ -36,19 +36,21 @@ const Styled = styled.div`
 `;
 
 export default function BlogDetails() {
+  const DB_URL = process.env.REACT_APP_DB_URL;
   const history = useHistory();
   const { id } = useParams();
-  const { data: blog, isPending, error } = useGet(`http://localhost:8000/blogs/${id}`);
+  const { data: blog, isPending, error } = useGet(`${DB_URL}/blogs/${id}`);
   const goBack = () => {
     history.push("/");
   };
   const deleteBlog = () => {
-    fetch(`http://localhost:8000/blogs/${blog.id}`, {
-      method: "DELETE",
+    fetch(`${DB_URL}/blogs/${blog.id}`, {
+      method: "delete",
     }).then(() => {
       history.push("/");
     });
   };
+  console.log(blog);
   return (
     <Styled>
       {isPending && <div>Loading...</div>}
